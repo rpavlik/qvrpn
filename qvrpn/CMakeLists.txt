@@ -17,6 +17,7 @@ set(SOURCES
 	vrpn_MainloopContainer.cpp
 	vrpn_QMainloopContainer.cpp
 	vrpn_QAnalogRemote.cpp
+	vrpn_QButtonRemote.cpp
 	vrpn_QTrackerRemote.cpp)
 
 set(HEADERS
@@ -27,6 +28,7 @@ set(HEADERS
 set(MOCS
 	vrpn_QMainloopContainer.h
 	vrpn_QAnalogRemote.h
+	vrpn_QButtonRemote.h
 	vrpn_QTrackerRemote.h)
 
 # Let QT pre-process the files and add the generated files to the source list
