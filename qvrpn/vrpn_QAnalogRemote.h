@@ -1,0 +1,52 @@
+/** @file
+	@brief Header
+
+	@date 2011
+
+	@author
+	Ryan Pavlik
+	<rpavlik@iastate.edu> and <abiryan@ryand.net>
+	http://academic.cleardefinition.com/
+	Iowa State University Virtual Reality Applications Center
+	Human-Computer Interaction Graduate Program
+*/
+
+#pragma once
+#ifndef INCLUDED_vrpn_QAnalogRemote_h_GUID_ab1365d4_10cb_4045_ae38_9cdc87a95088
+#define INCLUDED_vrpn_QAnalogRemote_h_GUID_ab1365d4_10cb_4045_ae38_9cdc87a95088
+
+// Internal Includes
+// - none
+
+// Library/third-party includes
+#include <QObject>
+#include <QString>
+#include <QSharedPointer>
+#include <QList>
+
+// Standard includes
+// - none
+
+class vrpn_Analog_Remote;
+class vrpn_Connection;
+
+/// A Qt-enabled wrapper object for VRPN Analog remotes.
+class vrpn_QAnalogRemote : public QObject {
+		Q_OBJECT
+	public:
+		vrpn_QAnalogRemote(QString const& name, vrpn_Connection * c = NULL, QObject * parent = NULL);
+		~vrpn_QAnalogRemote();
+
+	signals:
+		void analogReport(QList<double> channels);
+
+	public slots:
+		void mainloop();
+
+	private:
+		friend class vrpn_QAnalogRemote_impl;
+		void _handleChannels(QList<double> const& channels);
+		QSharedPointer<vrpn_Analog_Remote> _contained;
+};
+
+#endif // INCLUDED_vrpn_QAnalogRemote_h_GUID_ab1365d4_10cb_4045_ae38_9cdc87a95088
