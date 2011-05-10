@@ -15,7 +15,8 @@ include_directories(${VRPN_INCLUDE_DIRS})
 
 set(SOURCES
 	vrpn_MainloopContainer.cpp
-	vrpn_QMainloopContainer.cpp)
+	vrpn_QMainloopContainer.cpp
+	vrpn_QTrackerRemote.cpp)
 
 set(HEADERS
 	vrpn_ConnectionPtr.h
@@ -23,7 +24,8 @@ set(HEADERS
 	vrpn_MainloopObject.h)
 
 set(MOCS
-	vrpn_QMainloopContainer.h)
+	vrpn_QMainloopContainer.h
+	vrpn_QTrackerRemote.h)
 
 # Let QT pre-process the files and add the generated files to the source list
 qt4_wrap_ui(GENERATED_SOURCES ${UIS})
