@@ -33,7 +33,8 @@ class vrpn_QTrackerRemote_impl {
 		}
 };
 
-vrpn_QTrackerRemote::vrpn_QTrackerRemote(QString const& name, vrpn_Connection * c) :
+vrpn_QTrackerRemote::vrpn_QTrackerRemote(QString const& name, vrpn_Connection * c, QObject * parent) :
+	QObject(parent),
 	_contained(new vrpn_Tracker_Remote(name.toStdString().c_str(), c)) {
 	_contained->register_change_handler(this, &vrpn_QTrackerRemote_impl::handleTracker);
 }

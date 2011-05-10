@@ -35,7 +35,7 @@ class vrpn_Connection;
 class vrpn_QTrackerRemote : public QObject {
 		Q_OBJECT
 	public:
-		vrpn_QTrackerRemote(QString const& name, vrpn_Connection * c = NULL);
+		vrpn_QTrackerRemote(QString const& name, vrpn_Connection * c = NULL, QObject * parent = NULL);
 		~vrpn_QTrackerRemote();
 
 	signals:
