@@ -17,7 +17,6 @@
 
 // Library/third-party includes
 #include <vrpn_Analog.h>
-#include <quat.h>
 
 // Standard includes
 // - none
