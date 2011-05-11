@@ -30,7 +30,9 @@ class vrpn_MainloopObject {
 		/// Wrapping function for smart connection pointers
 		static vrpn_MainloopObject * wrap(vrpn_ConnectionPtr o);
 
-		/// Templated wrapping function
+		/// Templated wrapping function. The vrpn_MainloopObject created
+		/// this way takes ownership of the given object, and will delete
+		/// it on destruction
 		template<class T>
 		static vrpn_MainloopObject * wrap(T * o);
 

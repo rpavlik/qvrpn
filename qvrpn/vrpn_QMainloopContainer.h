@@ -17,8 +17,13 @@ class vrpn_QMainloopContainer : public QObject {
 		explicit vrpn_QMainloopContainer(int msInterval = 20, QObject *parent = 0);
 		~vrpn_QMainloopContainer();
 
+		/// Add a vrpn_MainloopObject. The mainloop container takes ownership
+		/// of the passed object and will delete it when destroyed or cleared.
 		void add(vrpn_MainloopObject * o);
 
+		/// Add an object wrappable into a vrpn_MainloopObject. The mainloop
+		/// container takes ownership of the passed object and will delete it
+		/// when destroyed or cleared.
 		template<class T>
 		void add(T o) {
 			add(vrpn_MainloopObject::wrap(o));
