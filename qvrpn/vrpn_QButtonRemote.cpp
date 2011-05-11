@@ -44,6 +44,10 @@ void vrpn_QButtonRemote::mainloop() {
 	_contained->mainloop();
 }
 
+void * vrpn_QButtonRemote::_returnContained() const {
+	return _contained.data();
+}
+
 void vrpn_QButtonRemote::_handleButton(int id, bool pressed) {
 	emit(buttonChanged(id, pressed));
 	if (pressed) {

@@ -16,7 +16,7 @@
 #define INCLUDED_vrpn_QButtonRemote_h_GUID_b716ec0b_7f9a_4b02_b1e8_00cccb488cb1
 
 // Internal Includes
-// - none
+#include "vrpn_MainloopObject.h"
 
 // Library/third-party includes
 #include <QObject>
@@ -30,7 +30,7 @@ class vrpn_Button_Remote;
 class vrpn_Connection;
 
 /// A Qt-enabled wrapper object for VRPN Button remotes.
-class vrpn_QButtonRemote : public QObject {
+class vrpn_QButtonRemote : public QObject, public vrpn_MainloopObject {
 		Q_OBJECT
 	public:
 		vrpn_QButtonRemote(QString const& name, vrpn_Connection * c = NULL, QObject * parent = NULL);
@@ -42,7 +42,12 @@ class vrpn_QButtonRemote : public QObject {
 		void buttonReleased(int id);
 
 	public slots:
+		/// vrpn_MainloopObject interface: step through the VRPN mainloop
 		void mainloop();
+
+	protected:
+		/// vrpn_MainloopObject interface: return contained pointer for comparisons.
+		void * _returnContained() const;
 
 	private:
 		friend class vrpn_QButtonRemote_impl;

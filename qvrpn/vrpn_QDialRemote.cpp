@@ -44,6 +44,10 @@ void vrpn_QDialRemote::mainloop() {
 	_contained->mainloop();
 }
 
+void * vrpn_QDialRemote::_returnContained() const {
+	return _contained.data();
+}
+
 void vrpn_QDialRemote::_handleDial(int id, double change) {
 	emit(dialChanged(id, change));
 }

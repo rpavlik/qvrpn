@@ -48,6 +48,10 @@ void vrpn_QAnalogRemote::mainloop() {
 	_contained->mainloop();
 }
 
+void * vrpn_QAnalogRemote::_returnContained() const {
+	return _contained.data();
+}
+
 void vrpn_QAnalogRemote::_handleChannels(QList<double> const& channels) {
 	emit(analogReport(channels));
 }

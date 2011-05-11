@@ -47,6 +47,10 @@ void vrpn_QTrackerRemote::mainloop() {
 	_contained->mainloop();
 }
 
+void * vrpn_QTrackerRemote::_returnContained() const {
+	return _contained.data();
+}
+
 void vrpn_QTrackerRemote::_handleTracker(int sensor, QVector3D position, QQuaternion orientation) {
 	emit(poseReport(sensor, position, orientation));
 }

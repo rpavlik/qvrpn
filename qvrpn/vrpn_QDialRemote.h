@@ -16,7 +16,7 @@
 #define INCLUDED_vrpn_QDialRemote_h_GUID_fd8bb49a_d415_4d43_8466_f64226e8934f
 
 // Internal Includes
-// - none
+#include "vrpn_MainloopObject.h"
 
 // Library/third-party includes
 #include <QObject>
@@ -30,7 +30,7 @@ class vrpn_Dial_Remote;
 class vrpn_Connection;
 
 /// A Qt-enabled wrapper object for VRPN Dial remotes.
-class vrpn_QDialRemote : public QObject {
+class vrpn_QDialRemote : public QObject, public vrpn_MainloopObject {
 		Q_OBJECT
 	public:
 		vrpn_QDialRemote(QString const& name, vrpn_Connection * c = NULL, QObject * parent = NULL);
@@ -40,7 +40,12 @@ class vrpn_QDialRemote : public QObject {
 		void dialChanged(int id, double change);
 
 	public slots:
+		/// vrpn_MainloopObject interface: step through the VRPN mainloop
 		void mainloop();
+
+	protected:
+		/// vrpn_MainloopObject interface: return contained pointer for comparisons.
+		void * _returnContained() const;
 
 	private:
 		friend class vrpn_QDialRemote_impl;

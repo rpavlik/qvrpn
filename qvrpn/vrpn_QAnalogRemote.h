@@ -16,7 +16,7 @@
 #define INCLUDED_vrpn_QAnalogRemote_h_GUID_ab1365d4_10cb_4045_ae38_9cdc87a95088
 
 // Internal Includes
-// - none
+#include "vrpn_MainloopObject.h"
 
 // Library/third-party includes
 #include <QObject>
@@ -31,7 +31,7 @@ class vrpn_Analog_Remote;
 class vrpn_Connection;
 
 /// A Qt-enabled wrapper object for VRPN Analog remotes.
-class vrpn_QAnalogRemote : public QObject {
+class vrpn_QAnalogRemote : public QObject, public vrpn_MainloopObject {
 		Q_OBJECT
 	public:
 		vrpn_QAnalogRemote(QString const& name, vrpn_Connection * c = NULL, QObject * parent = NULL);
@@ -41,7 +41,12 @@ class vrpn_QAnalogRemote : public QObject {
 		void analogReport(QList<double> channels);
 
 	public slots:
+		/// vrpn_MainloopObject interface: step through the VRPN mainloop
 		void mainloop();
+
+	protected:
+		/// vrpn_MainloopObject interface: return contained pointer for comparisons.
+		void * _returnContained() const;
 
 	private:
 		friend class vrpn_QAnalogRemote_impl;
