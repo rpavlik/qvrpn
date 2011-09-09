@@ -1,8 +1,34 @@
-#ifndef _VRPN_CONNECTIONPTR_H_
-#define _VRPN_CONNECTIONPTR_H_
+/** @file
+	@brief Header
 
+	@date 2011
+
+	@author
+	Ryan Pavlik
+	<rpavlik@iastate.edu> and <abiryan@ryand.net>
+	http://academic.cleardefinition.com/
+	Iowa State University Virtual Reality Applications Center
+	Human-Computer Interaction Graduate Program
+*/
+
+//          Copyright Iowa State University 2011.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+
+#pragma once
+#ifndef INCLUDED_vrpn_ConnectionPtr_h_GUID_d3b69d2a_f064_4126_9e62_29b28ab39c14
+#define INCLUDED_vrpn_ConnectionPtr_h_GUID_d3b69d2a_f064_4126_9e62_29b28ab39c14
+
+// Internal Includes
+// - none
+
+// Library/third-party includes
 #include <vrpn_Connection.h>
 #include <vrpn_MainloopObject.h>
+
+// Standard includes
+// - none
 
 /// A shared pointer class for holding on to vrpn_Connection instances, using the
 /// existing "intrusive reference counting" automatically.
@@ -219,4 +245,4 @@ namespace detail {
 	};
 } // end of namespace detail
 
-#endif // _VRPN_CONNECTIONPTR_H_
+#endif // INCLUDED_vrpn_ConnectionPtr_h_GUID_d3b69d2a_f064_4126_9e62_29b28ab39c14

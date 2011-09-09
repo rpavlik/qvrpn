@@ -1,12 +1,38 @@
-#ifndef _VRPN_QMAINLOOPCONTAINER_H_
-#define _VRPN_QMAINLOOPCONTAINER_H_
+/** @file
+	@brief Header
 
-#include "vrpn_MainloopContainer.h"
+	@date 2011
 
+	@author
+	Ryan Pavlik
+	<rpavlik@iastate.edu> and <abiryan@ryand.net>
+	http://academic.cleardefinition.com/
+	Iowa State University Virtual Reality Applications Center
+	Human-Computer Interaction Graduate Program
+*/
+
+//          Copyright Iowa State University 2011.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+
+#pragma once
+#ifndef INCLUDED_vrpn_QMainloopContainer_h_GUID_f7a94be6_2c69_476a_acf1_2d904a3d8a1d
+#define INCLUDED_vrpn_QMainloopContainer_h_GUID_f7a94be6_2c69_476a_acf1_2d904a3d8a1d
+
+// Internal Includes
+// - none
+
+// Library/third-party includes
 #include <QObject>
 #include <QTimer>
 #include <QSharedPointer>
 #include <QMutex>
+
+#include <vrpn_MainloopContainer.h>
+
+// Standard includes
+// - none
 
 /// A class supporting the interaction of Qt and the VRPN mainloop:
 /// uses vrpn_MainloopContainer to hold arbitrary vrpn objects and
@@ -50,4 +76,4 @@ class vrpn_QMainloopContainer : public QObject {
 		vrpn_MainloopContainer _vrpn;
 };
 
-#endif // _VRPN_QMAINLOOPCONTAINER_H_
+#endif // INCLUDED_vrpn_QMainloopContainer_h_GUID_f7a94be6_2c69_476a_acf1_2d904a3d8a1d
