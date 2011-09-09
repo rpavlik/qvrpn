@@ -11,6 +11,11 @@
 	Human-Computer Interaction Graduate Program
 */
 
+//          Copyright Iowa State University 2011.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+
 #pragma once
 #ifndef INCLUDED_vrpn_QButtonRemote_h_GUID_b716ec0b_7f9a_4b02_b1e8_00cccb488cb1
 #define INCLUDED_vrpn_QButtonRemote_h_GUID_b716ec0b_7f9a_4b02_b1e8_00cccb488cb1
