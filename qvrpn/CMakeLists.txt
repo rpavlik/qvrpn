@@ -5,7 +5,9 @@
 find_package(Qt4 COMPONENTS QtCore REQUIRED)
 include(${QT_USE_FILE})
 
-find_package(VRPN REQUIRED)
+if(NOT VRPN_FOUND)
+	find_package(VRPN REQUIRED)
+endif()
 
 ###
 # Build the project
