@@ -24,7 +24,7 @@
 /// Private class containing static callbacks for VRPN
 class vrpn_QDialRemote_impl {
 	public:
-		static void handleDial(void * userdata, const vrpn_DIALCB info) {
+		VRPN_CALLBACK static void handleDial(void * userdata, const vrpn_DIALCB info) {
 			vrpn_QDialRemote * qobj = static_cast<vrpn_QDialRemote *>(userdata);
 			qobj->_handleDial(info.dial, info.change);
 		}

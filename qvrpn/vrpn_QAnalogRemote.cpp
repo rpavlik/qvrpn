@@ -24,7 +24,7 @@
 /// Private class containing static callbacks for VRPN
 class vrpn_QAnalogRemote_impl {
 	public:
-		static void handleAnalog(void * userdata, const vrpn_ANALOGCB info) {
+		VRPN_CALLBACK static void handleAnalog(void * userdata, const vrpn_ANALOGCB info) {
 			vrpn_QAnalogRemote * qobj = static_cast<vrpn_QAnalogRemote *>(userdata);
 			QList<double> channels;
 			for (int i = 0; i < info.num_channel; ++i) {
