@@ -2,6 +2,7 @@
 #define _VRPN_CONNECTIONPTR_H_
 
 #include <vrpn_Connection.h>
+#include <vrpn_MainloopObject.h>
 
 /// A shared pointer class for holding on to vrpn_Connection instances, using the
 /// existing "intrusive reference counting" automatically.
@@ -188,5 +189,34 @@ bool operator==(const vrpn_ConnectionPtr& lhs, const T& rhs) {
 	return false;
 }
 /// @}
+
+/// Namespace enclosing internal implementation details
+namespace detail {
+	template<class T>
+	class TypedMainloopObject;
+
+	/// Specialization of vrpn_MainloopObject for holding connections that
+	/// are maintained by vrpn_ConnectionPtr smart pointers.
+	template<>
+	class TypedMainloopObject<vrpn_ConnectionPtr> : public vrpn_MainloopObject {
+		public:
+			explicit TypedMainloopObject(vrpn_ConnectionPtr o) : _instance(o) {
+				if (!o) {
+					throw vrpn_MainloopObject::CannotWrapNullPointerIntoMainloopObject();
+				}
+			}
+
+			virtual void mainloop() {
+				_instance->mainloop();
+			}
+
+		protected:
+			virtual void * _returnContained() const {
+				return _instance.get();
+			}
+		private:
+			vrpn_ConnectionPtr _instance;
+	};
+} // end of namespace detail
 
 #endif // _VRPN_CONNECTIONPTR_H_
