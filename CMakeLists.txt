@@ -41,3 +41,9 @@ add_subdirectory(qvrpn)
 # Installer setup
 ###
 include(InstallRequiredSystemLibraries)
+
+if(NOT CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+	# We're a sub project.
+	set(QVRPN_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/qvrpn PARENT_SCOPE)
+	set(QVRPN_LIBRARIES qvrpn PARENT_SCOPE)
+endif()
