@@ -14,7 +14,6 @@ set(EXTRA_LIBS ${QT_LIBRARIES} ${VRPN_LIBRARIES})
 include_directories(${VRPN_INCLUDE_DIRS})
 
 set(SOURCES
-	vrpn_MainloopContainer.cpp
 	vrpn_QMainloopContainer.cpp
 	vrpn_QAnalogRemote.cpp
 	vrpn_QButtonRemote.cpp
@@ -22,9 +21,7 @@ set(SOURCES
 	vrpn_QTrackerRemote.cpp)
 
 set(HEADERS
-	vrpn_ConnectionPtr.h
-	vrpn_MainloopContainer.h
-	vrpn_MainloopObject.h)
+	vrpn_ConnectionPtr.h)
 
 set(MOCS
 	vrpn_QMainloopContainer.h
