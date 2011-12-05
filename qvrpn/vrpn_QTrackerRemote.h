@@ -22,8 +22,8 @@
 #include <QObject>
 #include <QString>
 #include <QSharedPointer>
-#include <qt4/QtGui/QQuaternion>
-#include <qt4/QtGui/QVector3D>
+#include <QtGui/QQuaternion>
+#include <QtGui/QVector3D>
 
 // Standard includes
 // - none
