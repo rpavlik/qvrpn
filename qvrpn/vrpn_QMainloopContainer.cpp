@@ -35,15 +35,16 @@ vrpn_QMainloopContainer::~vrpn_QMainloopContainer() {
 	clear();
 }
 
-void vrpn_QMainloopContainer::add(vrpn_MainloopObject * o) {
+vrpn_MainloopObject * vrpn_QMainloopContainer::add(vrpn_MainloopObject * o) {
 	if (!o) {
-		return;
+		return o;
 	}
 	{
 		QMutexLocker locker(&_vectorMutex);
 		_vrpn.add(o);
 	}
 	emit added();
+	return o;
 }
 
 void vrpn_QMainloopContainer::clear() {

@@ -45,14 +45,15 @@ class vrpn_QMainloopContainer : public QObject {
 
 		/// Add a vrpn_MainloopObject. The mainloop container takes ownership
 		/// of the passed object and will delete it when destroyed or cleared.
-		void add(vrpn_MainloopObject * o);
+		vrpn_MainloopObject * add(vrpn_MainloopObject * o);
 
 		/// Add an object wrappable into a vrpn_MainloopObject. The mainloop
 		/// container takes ownership of the passed object and will delete it
 		/// when destroyed or cleared.
 		template<class T>
-		void add(T o) {
+		T add(T o) {
 			add(vrpn_MainloopObject::wrap(o));
+			return o;
 		}
 
 	signals:
