@@ -29,7 +29,7 @@
 /// Private class containing static callbacks for VRPN
 class vrpn_QButtonRemote_impl {
 	public:
-		VRPN_CALLBACK static void handleButton(void * userdata, const vrpn_BUTTONCB info) {
+		static void VRPN_CALLBACK handleButton(void * userdata, const vrpn_BUTTONCB info) {
 			vrpn_QButtonRemote * qobj = static_cast<vrpn_QButtonRemote *>(userdata);
 			qobj->_handleButton(info.button, info.state);
 		}

@@ -25,7 +25,7 @@
 /// Private class containing static callbacks for VRPN
 class vrpn_QTrackerRemote_impl {
 	public:
-		VRPN_CALLBACK static void handleTracker(void * userdata, const vrpn_TRACKERCB t) {
+		static void VRPN_CALLBACK handleTracker(void * userdata, const vrpn_TRACKERCB t) {
 			vrpn_QTrackerRemote * tkr = static_cast<vrpn_QTrackerRemote *>(userdata);
 			QVector3D pos(t.pos[0], t.pos[1], t.pos[2]);
 			QQuaternion quat(t.quat[Q_W], t.quat[Q_X], t.quat[Q_Y], t.quat[Q_Z]);
