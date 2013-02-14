@@ -172,7 +172,7 @@ class vrpn_ConnectionPtr {
 		vrpn_Connection * _p;
 
 		/// Dummy function supporting the safe bool idiom
-		void this_type_does_not_support_comparisons() {}
+		void this_type_does_not_support_comparisons() const {}
 };
 
 /// Equality operator for connection smart pointers
