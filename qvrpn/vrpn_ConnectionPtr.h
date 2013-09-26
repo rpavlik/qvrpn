@@ -187,6 +187,7 @@ inline bool operator!=(const vrpn_ConnectionPtr& lhs, const vrpn_ConnectionPtr& 
 	return lhs.get() != rhs.get();
 }
 
+#if 0
 /// @name Poisoning operators for connection smart pointers
 /// Supporting the safe bool idiom
 /// @relates vrpn_ConnectionPtr
@@ -215,6 +216,7 @@ bool operator==(const vrpn_ConnectionPtr& lhs, const T& rhs) {
 	return false;
 }
 /// @}
+#endif
 
 /// Namespace enclosing internal implementation details
 namespace detail {
