@@ -232,6 +232,10 @@ namespace detail {
 				}
 			}
 
+            virtual bool broken() {
+                return (!_instance->doing_okay());
+            }
+
 			virtual void mainloop() {
 				_instance->mainloop();
 			}
